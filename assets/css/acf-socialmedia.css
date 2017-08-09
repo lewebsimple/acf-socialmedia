@@ -1,0 +1,11 @@
+.acf-socialmedia i {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    opacity: 0.5;
+    color: #A9A9A9;
+}
+
+.acf-socialmedia input[type="text"] {
+    padding-left: 25px;
+}

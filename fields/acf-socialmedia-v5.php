@@ -10,6 +10,8 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 
 		public $settings;
 
+		public $social_medias;
+
 		/**
 		 * acf_field_socialmedia constructor.
 		 *
@@ -18,13 +20,30 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 		 * @param $settings (array) The plugin settings
 		 */
 		function __construct( $settings ) {
-			$this->name     = 'socialmedia';
-			$this->label    = __( 'Social Media', 'acf-socialmedia' );
-			$this->category = 'basic';
-			$this->defaults = array(
+			$this->name          = 'socialmedia';
+			$this->label         = __( 'Social Media', 'acf-socialmedia' );
+			$this->category      = 'basic';
+			$this->defaults      = array(
 				'return_format' => 'icon',
 			);
-			$this->settings = $settings;
+			$this->settings      = $settings;
+			$this->social_medias = array(
+				'bandcamp'    => 'bandcamp.com',
+				'facebook'    => 'https://www.facebook.com',
+				'flickr'      => 'https://www.flickr.com',
+				'github'      => 'https://github.com',
+				'google-plus' => 'https://plus.google.com',
+				'instagram'   => 'https://www.instagram.com',
+				'linkedin'    => 'https://www.linkedin.com',
+				'medium'      => 'https://medium.com',
+				'pinterest'   => 'https://www.pinterest.com',
+				'reddit'      => 'https://www.reddit.com',
+				'soundcloud'  => 'https://soundcloud.com',
+				'tumblr'      => 'tumblr.com',
+				'twitter'     => 'https://twitter.com',
+				'vine'        => 'https://vine.co',
+				'youtube'     => 'https://www.youtube.com',
+			);
 			parent::__construct();
 		}
 
@@ -55,6 +74,7 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 		function render_field( $field ) {
 			?>
             <div class="acf-input-wrap acf-socialmedia">
+                <i class="acf-icon -globe -small"></i>
                 <input type="text" name="<?= $field['name'] ?>" value="<?= $field['value'] ?>"/>
             </div>
 			<?php
@@ -69,73 +89,9 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 			$version = $this->settings['version'];
 			wp_register_script( 'acf-input-socialmedia', "{$url}assets/js/input.js", array( 'acf-input' ), $version );
 			wp_enqueue_script( 'acf-input-socialmedia' );
-		}
 
-		/**
-		 *  This action is called in the admin_head action on the edit screen where your field is created.
-		 *  Use this action to add CSS and JavaScript to assist your render_field() action.
-		 */
-		function input_admin_head() {
-		}
-
-		/**
-		 *  This function is called once on the 'input' page between the head and footer
-		 *  There are 2 situations where ACF did not load during the 'acf/input_admin_enqueue_scripts' and
-		 *  'acf/input_admin_head' actions because ACF did not know it was going to be used. These situations are
-		 *  seen on comments / user edit forms on the front end. This function will always be called, and includes
-		 *  $args that related to the current screen such as $args['post_id']
-		 *
-		 * @param $args
-		 */
-		function input_form_data( $args ) {
-		}
-
-
-		/**
-		 *  This action is called in the admin_footer action on the edit screen where your field is created.
-		 *  Use this action to add CSS and JavaScript to assist your render_field() action.
-		 */
-		function input_admin_footer() {
-		}
-
-		/**
-		 *  This action is called in the admin_enqueue_scripts action on the edit screen where your field is edited.
-		 *  Use this action to add CSS + JavaScript to assist your render_field_options() action.
-		 */
-		function field_group_admin_enqueue_scripts() {
-		}
-
-		/**
-		 *  This action is called in the admin_head action on the edit screen where your field is edited.
-		 *  Use this action to add CSS and JavaScript to assist your render_field_options() action.
-		 */
-		function field_group_admin_head() {
-		}
-
-		/**
-		 * This filter is applied to the $value after it is loaded from the db
-		 *
-		 * @param  $value (mixed) the value found in the database
-		 * @param  $post_id (mixed) the $post_id from which the value was loaded
-		 * @param  $field (array) the field array holding all the field options
-		 *
-		 * @return $value
-		 */
-		function load_value( $value, $post_id, $field ) {
-			return $value;
-		}
-
-		/**
-		 * This filter is applied to the $value before it is saved in the db
-		 *
-		 * @param  $value (mixed) the value found in the database
-		 * @param  $post_id (mixed) the $post_id from which the value was loaded
-		 * @param  $field (array) the field array holding all the field options
-		 *
-		 * @return $value
-		 */
-		function update_value( $value, $post_id, $field ) {
-			return $value;
+			wp_register_style( 'acf-socialmedia', "{$url}assets/css/acf-socialmedia.css", array( 'acf-input' ), $version );
+			wp_enqueue_style( 'acf-socialmedia' );
 		}
 
 		/**
@@ -152,7 +108,27 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 				return $value;
 			}
 
-			return $value;
+			$social_media = $this->get_social_media( $value );
+			if ( $social_media === false ) {
+				return '';
+			}
+
+			switch ( $field['return_format'] ) {
+				case 'icon':
+					$output = '<a href="' . $value . '" target="_blank">';
+					$output .= '<i class="fa fa-' . $social_media . '" ></i>';
+					$output .= '</a>';
+					break;
+
+				case 'array':
+				default:
+					$output = array(
+						$social_media => $value,
+					);
+					break;
+			}
+
+			return $output;
 		}
 
 		/**
@@ -168,48 +144,38 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 		 * @return $valid
 		 */
 		function validate_value( $valid, $value, $field, $input ) {
-			return $valid;
+			if ( empty( $value ) ) {
+				return $valid;
+			}
+
+			if ( strpos( $value, 'https://' ) === false ) {
+				return __( "Invalid social media URL.", 'acf-socialmedia' );
+			}
+
+			if ( $this->get_social_media( $value ) ) {
+				return $valid;
+			}
+
+			return __( "Unrecognized social media URL.", 'acf-socialmedia' );
 		}
 
 		/**
-		 *  This action is fired after a value has been deleted from the db.
-		 *  Please note that saving a blank value is treated as an update, not a delete
+		 * Determine the social media from URL value.
 		 *
-		 * @param  $post_id (mixed) the $post_id from which the value was deleted
-		 * @param  $key (string) the $meta_key which the value was deleted
+		 * @param string $url Social media URL.
+		 *
+		 * @return bool|string
+		 * Returns the social media key (i.e. 'facebook') if the url is valid.
+		 * Returns false otherwise.
 		 */
-		function delete_value( $post_id, $key ) {
-		}
+		function get_social_media( $url ) {
+			foreach ( $this->social_medias as $key => $social_media ) {
+				if ( strpos( $url, $social_media ) !== false ) {
+					return $key;
+				}
+			}
 
-		/**
-		 *  This filter is applied to the $field after it is loaded from the database
-		 *
-		 * @param  $field (array) the field array holding all the field options
-		 *
-		 * @return  $field
-		 */
-		function load_field( $field ) {
-			return $field;
-		}
-
-		/**
-		 *  This filter is applied to the $field before it is saved to the database
-		 *
-		 * @param  $field (array) the field array holding all the field options
-		 *
-		 * @return  $field
-		 */
-		function update_field( $field ) {
-			return $field;
-		}
-
-
-		/**
-		 *  This action is fired after a field is deleted from the database
-		 *
-		 * @param  $field (array) the field array holding all the field options
-		 */
-		function delete_field( $field ) {
+			return false;
 		}
 
 	}
