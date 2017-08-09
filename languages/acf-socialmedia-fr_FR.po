@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Custom Fields: Social Media\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-08 15:43+0000\n"
-"PO-Revision-Date: 2017-08-08 15:46+0000\n"
+"POT-Creation-Date: 2017-08-09 13:45+0000\n"
+"PO-Revision-Date: 2017-08-09 13:46+0000\n"
 "Last-Translator: lewebsimple <tech@lewebsimple.ca>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -13,23 +13,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: fields/acf-socialmedia-v5.php:22
+#: fields/acf-socialmedia-v5.php:152
+msgid "Invalid social media URL."
+msgstr "URL de média social invalide."
+
+#: fields/acf-socialmedia-v5.php:159
+msgid "Unrecognized social media URL."
+msgstr "URL de média social non reconnu."
+
+#: fields/acf-socialmedia-v5.php:24
 msgid "Social Media"
 msgstr "Média social"
 
-#: fields/acf-socialmedia-v5.php:39
+#: fields/acf-socialmedia-v5.php:58
 msgid "Return Format"
 msgstr "Format d'affichage"
 
-#: fields/acf-socialmedia-v5.php:40
+#: fields/acf-socialmedia-v5.php:59
 msgid "Specify the value returned in the template."
 msgstr "Détermine le format retourné dans le modèle."
 
-#: fields/acf-socialmedia-v5.php:43
+#: fields/acf-socialmedia-v5.php:62
 msgid "Icon"
 msgstr "Icône"
 
-#: fields/acf-socialmedia-v5.php:44
+#: fields/acf-socialmedia-v5.php:63
 msgid "Values (array)"
 msgstr "Valeurs (array)"
 

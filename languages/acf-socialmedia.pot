@@ -3,35 +3,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-08 15:43+0000\n"
+"POT-Creation-Date: 2017-08-09 13:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
 "Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Loco - https://localise.biz/"
 
-#: fields/acf-socialmedia-v5.php:22
+#: fields/acf-socialmedia-v5.php:24
 msgid "Social Media"
 msgstr ""
 
-#: fields/acf-socialmedia-v5.php:39
+#: fields/acf-socialmedia-v5.php:58
 msgid "Return Format"
 msgstr ""
 
-#: fields/acf-socialmedia-v5.php:40
+#: fields/acf-socialmedia-v5.php:59
 msgid "Specify the value returned in the template."
 msgstr ""
 
-#: fields/acf-socialmedia-v5.php:43
+#: fields/acf-socialmedia-v5.php:62
 msgid "Icon"
 msgstr ""
 
-#: fields/acf-socialmedia-v5.php:44
+#: fields/acf-socialmedia-v5.php:63
 msgid "Values (array)"
+msgstr ""
+
+#: fields/acf-socialmedia-v5.php:152
+msgid "Invalid social media URL."
+msgstr ""
+
+#: fields/acf-socialmedia-v5.php:159
+msgid "Unrecognized social media URL."
 msgstr ""
 
 #. Name of the plugin
