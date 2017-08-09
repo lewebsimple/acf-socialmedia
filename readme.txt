@@ -9,6 +9,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Social Media field for ACF.
 
+== Description ==
+
+The following social medias are supported:
+* Bandcamp
+* Facebook
+* Flickr
+* GitHub
+* Google+
+* Instagram
+* LinkedIn
+* Medium
+* Pinterest
+* Reddit
+* SoundCloud
+* Tumblr
+* Twitter
+* Vine
+* YouTube
+
 = Compatibility =
 
 This ACF field type is compatible with:
@@ -22,6 +41,10 @@ This ACF field type is compatible with:
 4. Please refer to the description for more info regarding the field type settings
 
 == Changelog ==
+
+= 0.2.0 =
+* URL validation against supported social medias
+* Icon (fontawesome required) and Array return formats
 
 = 0.1.0 =
 * Initial Release.
