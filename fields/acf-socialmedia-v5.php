@@ -75,7 +75,7 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 			?>
             <div class="acf-input-wrap acf-socialmedia">
                 <i class="acf-icon -globe -small"></i>
-                <input type="text" name="<?= $field['name'] ?>" value="<?= $field['value'] ?>"/>
+                <input type="url" name="<?= $field['name'] ?>" value="<?= $field['value'] ?>"/>
             </div>
 			<?php
 		}
