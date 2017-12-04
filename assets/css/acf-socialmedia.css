@@ -6,6 +6,6 @@
     color: #A9A9A9;
 }
 
-.acf-socialmedia input[type="text"] {
+.acf-socialmedia input[type="url"] {
     padding-left: 25px;
 }
