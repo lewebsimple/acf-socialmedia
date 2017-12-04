@@ -29,20 +29,20 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 			$this->settings      = $settings;
 			$this->social_medias = array(
 				'bandcamp'    => 'bandcamp.com',
-				'facebook'    => 'https://www.facebook.com',
-				'flickr'      => 'https://www.flickr.com',
-				'github'      => 'https://github.com',
-				'google-plus' => 'https://plus.google.com',
-				'instagram'   => 'https://www.instagram.com',
-				'linkedin'    => 'https://www.linkedin.com',
-				'medium'      => 'https://medium.com',
-				'pinterest'   => 'https://www.pinterest.com',
-				'reddit'      => 'https://www.reddit.com',
-				'soundcloud'  => 'https://soundcloud.com',
+				'facebook'    => 'facebook.com',
+				'flickr'      => 'flickr.com',
+				'github'      => 'github.com',
+				'google-plus' => 'plus.google.com',
+				'instagram'   => 'instagram.com',
+				'linkedin'    => 'linkedin.com',
+				'medium'      => 'medium.com',
+				'pinterest'   => 'pinterest.com',
+				'reddit'      => 'reddit.com',
+				'soundcloud'  => 'soundcloud.com',
 				'tumblr'      => 'tumblr.com',
-				'twitter'     => 'https://twitter.com',
-				'vine'        => 'https://vine.co',
-				'youtube'     => 'https://www.youtube.com',
+				'twitter'     => 'twitter.com',
+				'vine'        => 'vine.co',
+				'youtube'     => 'youtube.com',
 			);
 			parent::__construct();
 		}
@@ -146,10 +146,6 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 		function validate_value( $valid, $value, $field, $input ) {
 			if ( empty( $value ) ) {
 				return $valid;
-			}
-
-			if ( strpos( $value, 'https://' ) === false ) {
-				return __( "Invalid social media URL.", 'acf-socialmedia' );
 			}
 
 			if ( $this->get_social_media( $value ) ) {
