@@ -87,8 +87,6 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 		function input_admin_enqueue_scripts() {
 			$url     = $this->settings['url'];
 			$version = $this->settings['version'];
-			wp_register_script( 'acf-input-socialmedia', "{$url}assets/js/input.js", array( 'acf-input' ), $version );
-			wp_enqueue_script( 'acf-input-socialmedia' );
 
 			wp_register_style( 'acf-socialmedia', "{$url}assets/css/acf-socialmedia.css", array( 'acf-input' ), $version );
 			wp_enqueue_style( 'acf-socialmedia' );
@@ -115,8 +113,8 @@ if ( ! class_exists( 'acf_field_socialmedia' ) ) :
 
 			switch ( $field['return_format'] ) {
 				case 'icon':
-					$output = '<a href="' . $value . '" target="_blank">';
-					$output .= '<i class="fa fa-' . $social_media . '" ></i>';
+					$output = '<a href="' . $value . '" target="_blank"  class="acf-socialmedia-icon">';
+					$output .= '<i class="fas fa-fw fa-' . $social_media . '" ></i>';
 					$output .= '</a>';
 					break;
 

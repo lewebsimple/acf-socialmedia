@@ -1,13 +1,13 @@
-=== Advanced Custom Fields: Social Media ===
+=== ACF: Social Media ===
 Contributors: Pascal Martineau <pascal@lewebsimple.ca>
 Tags: acf, socialmedia, field
-Requires at least: 3.5
-Tested up to: 3.8.1
+Requires at least: 4.4
+Tested up to: 4.9.7
 Stable tag: trunk
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Social Media field for ACF.
+Social Media field for Advanced Custom Field v5.
 
 == Description ==
 
