@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:     ACF Sovial Media
- * Plugin URI:      https://github.com/lewebsimple/acf-socialmedia
+ * Plugin Name:     ACF Social Media
+ * Plugin URI:      https://gitlab.ledevsimple.ca/wordpress/plugins/acf-socialmedia
  * Description:     Social Media field for Advanced Custom Field v5.
  * Author:          Pascal Martineau <pascal@lewebsimple.ca>
  * Author URI:      https://lewebsimple.ca
@@ -9,7 +9,7 @@
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     acf-socialmedia
  * Domain Path:     /languages
- * Version:         1.0.0
+ * Version:         1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,9 +20,27 @@ if ( ! class_exists( 'acf_plugin_socialmedia' ) ) :
 
 	class acf_plugin_socialmedia {
 
+		static $social_medias = array(
+			'bandcamp'    => 'bandcamp.com',
+			'facebook'    => 'facebook.com',
+			'flickr'      => 'flickr.com',
+			'github'      => 'github.com',
+			'google-plus' => 'plus.google.com',
+			'instagram'   => 'instagram.com',
+			'linkedin'    => 'linkedin.com',
+			'medium'      => 'medium.com',
+			'pinterest'   => 'pinterest.com',
+			'reddit'      => 'reddit.com',
+			'soundcloud'  => 'soundcloud.com',
+			'tumblr'      => 'tumblr.com',
+			'twitter'     => 'twitter.com',
+			'vine'        => 'vine.co',
+			'youtube'     => 'youtube.com',
+		);
+
 		function __construct() {
 			$this->settings = array(
-				'version' => '1.0.0',
+				'version' => '1.1.0',
 				'url'     => plugin_dir_url( __FILE__ ),
 				'path'    => plugin_dir_path( __FILE__ )
 			);
@@ -32,6 +50,17 @@ if ( ! class_exists( 'acf_plugin_socialmedia' ) ) :
 		function include_field_types( $version = false ) {
 			load_plugin_textdomain( 'acf-socialmedia', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 			include_once( 'fields/acf-socialmedia-v5.php' );
+		}
+
+		// Helper: Determine social media from URL
+		static function get_social_media( $url ) {
+			foreach ( self::$social_medias as $key => $social_media ) {
+				if ( strpos( $url, $social_media ) !== false ) {
+					return $key;
+				}
+			}
+
+			return false;
 		}
 
 	}

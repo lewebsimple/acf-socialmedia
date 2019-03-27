@@ -2,7 +2,7 @@
 Contributors: Pascal Martineau <pascal@lewebsimple.ca>
 Tags: acf, socialmedia, field
 Requires at least: 4.4
-Tested up to: 4.9.7
+Tested up to: 5.1.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -41,6 +41,10 @@ This ACF field type is compatible with:
 4. Please refer to the description for more info regarding the field type settings
 
 == Changelog ==
+
+= 1.1.0 =
+* Add 'url' return_format
+* Array return format using array( 'url' => '...', 'social_media' => 'facebook' )
 
 = 0.2.0 =
 * URL validation against supported social medias
