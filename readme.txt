@@ -42,6 +42,9 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.1.1 =
+* Add composer.json
+
 = 1.1.0 =
 * Add 'url' return_format
 * Array return format using array( 'url' => '...', 'social_media' => 'facebook' )
