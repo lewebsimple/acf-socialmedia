@@ -36,6 +36,7 @@ if ( ! class_exists( 'acf_plugin_socialmedia' ) ) :
 			'twitter'     => 'twitter.com',
 			'vine'        => 'vine.co',
 			'youtube'     => 'youtube.com',
+			'vimeo'       => 'vimeo.com',
 		);
 
 		function __construct() {
