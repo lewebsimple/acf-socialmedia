@@ -42,6 +42,11 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.1.3 =
+* Add TikTok support
+
+= 1.1.2 =
+
 = 1.1.1 =
 * Add composer.json
 

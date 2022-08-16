@@ -9,7 +9,7 @@
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     acf-socialmedia
  * Domain Path:     /languages
- * Version:         1.1.2
+ * Version:         1.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,11 +32,12 @@ if ( ! class_exists( 'acf_plugin_socialmedia' ) ) :
 			'pinterest'   => 'pinterest.com',
 			'reddit'      => 'reddit.com',
 			'soundcloud'  => 'soundcloud.com',
+			'tiktok'       => 'tiktok.com',
 			'tumblr'      => 'tumblr.com',
 			'twitter'     => 'twitter.com',
+			'vimeo'       => 'vimeo.com',
 			'vine'        => 'vine.co',
 			'youtube'     => 'youtube.com',
-			'vimeo'       => 'vimeo.com',
 		);
 
 		function __construct() {
