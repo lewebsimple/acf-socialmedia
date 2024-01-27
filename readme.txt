@@ -42,6 +42,9 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 2.0.0 =
+* Refactor using the official ACF example field type
+
 = 1.1.3 =
 * Add TikTok support
 
