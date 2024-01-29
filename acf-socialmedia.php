@@ -9,7 +9,7 @@
  * License URI:     http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     acf-socialmedia
  * Domain Path:     /languages
- * Version:         2.0.0
+ * Version:         2.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -68,7 +68,7 @@ class acf_socialmedia_plugin {
 		if ( empty( $value ) ) {
 			return $value;
 		}
-		$social_media = acf_plugin_socialmedia::get_social_media( $value );
+		$social_media = acf_socialmedia_plugin::get_social_media( $value );
 		switch ( $format ) {
 			case 'icon':
 				ob_start();
